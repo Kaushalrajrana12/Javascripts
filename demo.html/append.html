@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type ="text" id="newitems" placeholder="Enter Item's">
+    <button id="btn" onclick="mydemo()">Add</button>
+    <ul>
+    
+    </ul>
+</body>
+<script>
+    let field = document.getElementById("newitems");
+    let adds =document.getElementById("btn");
+    let ul = document.querySelector("ul");
+    let li = document.getElementsByTagName("li");
+    mydemo = () => //Arrow function
+    {
+        console.log(field.value);
+
+        if (field.value) {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(field.value));
+            ul.appendChild(li);
+            adds.value="";
+            console.log(li);
+        } else {
+            alert("Add some data")
+        }
+
+      
+     
+
+    }
+    
+</script>
+</html>

@@ -1,0 +1,152 @@
+<html>
+    <head>
+    </head>
+    <style>
+        table,td,tr
+        {
+            border: 1px solid;
+            width: 500px;
+            height: 120px;
+            border-collapse: collapse;
+            text-align: left;
+            padding: 8px;
+            font-size: large;
+            background-color:rgb(189, 207, 207)
+            
+           
+           }
+           form{
+            display:flow-root;
+            align-content:flex-end;
+            margin: 0px 0px 900px 600px;
+            position: absolute;
+           top: 200px;  
+            
+           }
+           label{
+            font-size: larger;
+            text-decoration: double;
+           }
+        
+    </style>
+    <body>
+        
+<div id ="items">
+</div>
+<div>
+    <form>
+        <label>ProductName</label>
+        <input type="text" id="pn" placeholder="Search for names"onkeyup="searchFun()"/>
+        <button >Search</button> <br/>
+        <label>Category</label>
+        <select id="ct">
+            <option >select category</option>
+            <option>Mobile</option>
+            <option>AC</option>
+            <option>HeadPhone</option>
+            <option>Tv</option>
+        </select>
+        <button>Search</button> <br/>
+        <label>Price</label>
+        <input type="text"/>
+        <label>to</label>
+        <input type="text"/>
+        <button>Search</button> <br/>
+    </form>
+</div>
+    </body>
+    <script>
+        const product =[
+            {
+                name:'Iphone',
+                image:'https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/c/4/d/-original-imaghx9qygjjg8hz.jpeg?q=70',
+                price:68000,
+                category:'Mobile'
+
+            },
+            {
+                name:'Haier',
+                image:'https://rukminim1.flixcart.com/image/312/312/xif0q/air-conditioner-new/t/u/u/-original-imagpfkpbz4gz7xv.jpeg?q=70',
+                price:25000,
+                category:'AC'
+
+            },
+            {
+                name:'Logitech',
+                image:'https://rukminim1.flixcart.com/image/416/416/kij6f0w0-0/headphone/8/d/l/g431-7-1-surround-sound-gaming-headset-logitech-g-original-imafyapzh65f63ss.jpeg?q=70',
+                price:7000,
+                category:'HeadPhone'
+
+            },
+            {
+                name:'Tv',
+                image:'https://rukminim1.flixcart.com/image/416/416/l3929ow0/television/h/d/m/kd-65x75k-in5-sony-original-imagef3zkuszrfgh.jpeg?q=70',
+                price:30000,
+                category:'Sony'
+
+            },
+            {
+                name:'Oxygen-05 Running Shoes',
+                image:'https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/m/o/h/-original-imaggcawtbgvt7wy.jpeg?q=70',
+                price:1200,
+                category:'Footwear'
+            },
+            {
+                name:'Printed Hooded Neck White T-Shirt',
+                image:'https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/q/i/z/s-half-star-one-nb-nicky-boy-original-imagm98snqqacghb.jpeg?q=70',
+                price:400,
+                category:'Clothing'
+            },
+            {
+                name:'Sonta',
+                image:'https://rukminim1.flixcart.com/image/832/832/xif0q/watch/i/q/e/-original-imagnre8pbpnfhgz.jpeg?q=70',
+                price:699,
+                category:'Watch'
+            }
+
+        ];
+        let tables =`
+            
+            <table id ="tb">
+                    <tr>
+                        <td>Name</td>
+                        <td>Image</td>
+                        <td>Price</td>
+                        <td>Category</td>
+                    </tr>
+                `;
+                for(let i =0;i<product.length;i++)
+                {
+                    tables +=`<tr>
+                        <td>${product[i].name}</td>
+                       <td><img src ="${product[i].image}" width="70px" height="40%"/></td>
+                        <td>${product[i].price}</td>
+                        <td>${product[i].category}</td>
+                    </tr>`;
+                   
+                }
+                tables+='</table>';
+                document.getElementById("items").innerHTML=tables;
+                searchFun=()=>{
+                    let filter = document.getElementById('pn').value.toUpperCase();
+                    let myTable = document.getElementById('tb');
+                    let tr = myTable.getElementsByTagName('tr');
+                    for(let i =0;i<tr.length;i++)
+                    {
+                        let td = tr[i].getElementsByTagName('td')[0];
+                        if(td){
+                            let textvalue = td.textContent || td.innerHTML;
+                            if(textvalue.toUpperCase().indexOf(filter) > -1)
+                            {
+                                tr[i].style.display = "";
+                            }else{
+                                tr[i].style.display="none";
+                            }
+                        }
+                    }
+                }  
+               
+           
+    </script>
+    </html>
+    <!-- <td><img src="'+image+'"></img></td> -->

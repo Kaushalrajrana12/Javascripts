@@ -1,0 +1,42 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <label>Username</label>
+        <input type="text" name="user"/>
+        <label>Password</label>
+        <input type="password" name="pass"/>
+        <button onclick="demo()">click</button>
+    </body>
+    <script>
+        demo=()=>{
+                        let a =[
+                            {
+                                user:'abc',
+                                pass:'123'
+                             },
+                             {
+                                user:'abcd',
+                                pass:'1234'
+                             },
+                             {
+                                user:'abcde',
+                                pass:'12345'
+                             },   
+                    ]
+                    let b =a.some(users());
+                    document.write(b);
+                    users=(a)=>
+                    {
+                        if(user == 'abc' && pass ==123)
+                         {
+                            return true;
+                         }    
+                         else{
+                            return false;
+                         } 
+
+                    }
+}
+    </script>
+</html>

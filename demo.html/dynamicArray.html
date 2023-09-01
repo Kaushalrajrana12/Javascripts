@@ -1,0 +1,14 @@
+<html>
+<div id="str"></div>
+<script>
+    let str = '';
+    let alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    //  alpha.forEach(element =>console.log(element));
+    for (i = 0; i < alpha.length; i++) {
+        console.log(alpha[i]);
+        str  = str + `<i> ${alpha[i]} </i>`;
+    }
+    document.getElementById('str').innerHTML = alpha;
+</script>
+
+</html>

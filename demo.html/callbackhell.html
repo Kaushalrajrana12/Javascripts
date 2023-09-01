@@ -1,0 +1,20 @@
+
+<script>
+//1:my name is kaushal
+//2:my phone number is :9909333044
+//3:my age is :23
+
+const getname =()=>{
+    setTimeout(()=>{
+        const obj ={
+            name:"kaushal",
+            phonenumber:9909333044
+        }
+        console.log(`my name is ${obj.name} and my phonenumber is ${obj.phonenumber}`);
+        setTimeout(()=>{
+            obj.age = 23;
+            console.log(`my name is ${obj.name} and my phonenumber is ${obj.phonenumber} and my age is ${obj.age}`);
+        },1000)
+    },1000)
+}
+</script>

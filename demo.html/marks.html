@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <body>
+            <h1>Student Result</h1>
+            <label for="">Name:</label>
+            <input type="text" id="name"><br><br>
+            <label for="">English</label>
+            <input type="number" id="eng"><br><br>
+            <label for="">Maths</label>
+            <input type="number" id="math"><br><br>
+            <label for="">Gujarati</label>
+            <input type="number" id="guj"><br><br>
+            <label for="">Hindi</label>
+            <input type="number" id="hin"><br><br>
+            <button onclick="result()">Submit</button>
+            <div id="marks"></div>
+        </body>
+        <script>
+            let res =[];
+            function result()
+            {
+                let e =parseInt(document.getElementById("eng").value);
+                let m =parseInt(document.getElementById("math").value);
+                let g =parseInt(document.getElementById("guj").value);
+                let h =parseInt(document.getElementById("hin").value);
+                let total = e + m + g + h;
+
+                res.push({
+                    Name: document.getElementById("name").value,
+                    English:e,
+                    Maths:m,
+                    Gujarati:g,
+                    Hindi:h,
+                    Total:total,
+                    Percentage:total / 4
+                });
+                let str = `
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>English</td>
+                        <td>Maths</td>
+                        <td>Gujarati</td>
+                        <td>Hindi</td>
+                        <td>Total</td>
+                        <td>Percentage</td>
+                    </tr>
+                `;
+                for (let i = 0; i < res.length; i++) {
+            str += `<tr>
+                <td>${res[i].Name}</td>
+                <td>${res[i].English}</td>
+                <td>${res[i].Maths}</td>
+                <td>${res[i].Gujarati}</td>
+                <td>${res[i].Hindi}</td>
+                <td>${res[i].Total}</td>
+                <td>${res[i].Percentage}</td>
+            </tr>`;
+        }
+        str += '</table>';
+        document.getElementById("marks").innerHTML = str;
+
+        
+    }
+        </script>
+    </head>
+</html>

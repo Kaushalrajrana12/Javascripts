@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #ta
+    {
+        border-collapse: collapse;
+        width: 30%;
+        margin-top: 20px;
+        background-color:crimson;
+    }
+    td
+    {
+        padding: 10px;
+      border: 1px solid #ddd;  
+    }
+    tr:hover{
+         background-color:cornsilk;
+    }
+    button:hover
+    {
+        width:20%;
+        border: none;
+        padding: 15px 32px;
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+        font-size: 13px;
+        background-color: #008CBA;
+        color: white;
+        transition-duration: 0.4s;
+
+    }
+    #field
+    {
+        width:20%;
+        border: 1px;
+        padding: 15px 32px;
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+        font-size: 13px;
+    }
+</style>
+<body>
+    <input type="text" placeholder="Enter here" id="field">
+    <button id="btns" onclick="lists()">Add</button>
+    <div id="school"></div>
+</body>
+<script>
+    let todo =[];
+    lists = () =>
+    {   
+        todo.push({
+            a:document.getElementById("field").value
+        });
+        let star =`<table id ="ta">
+            <tr>
+                <td>a</td>
+            </tr>
+            `;
+            for(let i =0; i < todo.length; i++)
+            {
+                star += `<tr>
+                    <td>${todo[i].a}</td>
+                    </tr>
+                    `;
+            }
+            star += '</table>';
+            document.getElementById("school").innerHTML = star;
+    }
+</script>
+</html>                     

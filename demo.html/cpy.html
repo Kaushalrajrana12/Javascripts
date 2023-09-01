@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div id="cardcontainer">
+</div>
+<script>
+fetch('https://dummyjson.com/products')  
+  .then((response) => response.json())
+  .then((data)=>{
+    console.log(data);
+    ihtml="";
+    data.products.forEach((res) => 
+    {
+    
+      ihtml += `<div class="card">
+                    <img src='https://i.dummyjson.com/data/products/1/thumbnail.jpg' alt="${res.brand}" style="width:100%">
+                    <h1>${res.title}</h1>
+                    <p class="title">CEO & Founder, Example</p>
+                    <p>Harvard University</p>
+                    <div style="margin: 24px 0;">
+                        <a href="#"></a> 
+                        <a href="#"></a>  
+                        <a href="#"></a>  
+                        <a href="#"></a> 
+                    </div>
+                    <p><button>Contact</button></p>
+                    </div>`
+    });
+   
+    cardcontainer.innerHTML= ihtml ;
+  })
+  .catch((error)=> document.write("cant't find yar"));
+</script>
+</html>
+<!-- html += `<tr><td>${index + 1}</td><td>${res.title}</td></tr>`; -->
+<!-- let html = '<table><tr><td>#</td><td>Name</td></tr>'; -->
+    <!-- html += '</table>'; -->

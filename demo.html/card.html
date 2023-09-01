@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Document</title>
+</head>
+<style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 40%;
+    }
+    
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    
+    .container {
+      padding: 2px 16px;
+    }
+    </style>
+<body>
+    <div id="cardcontainer">
+    </div>
+    <!-- <script src ="script.js"></script> -->
+</body>
+<script>
+  
+let url = ('https://jsonplaceholder.typicode.com/posts');
+let response =  fetch(url) ;
+response.then((v)=>{
+           return v.json()
+}).then((music) => {
+    console.log(music)
+    ihtml=""; 
+    for(item in music)
+    { 
+      console.log(music[item]);
+      ihtml+=`
+                    <div class="card">
+                  <img src='https://rukminim1.flixcart.com/image/416/416/kij6f0w0-0/headphone/8/d/l/g431-7-1-surround-sound-gaming-headset-logitech-g-original-imafyapzh65f63ss.jpeg?q=70'>
+                  <div class="container">
+                    <h4><b>${music[item].title}</b></h4> 
+                    <p>${music[item].body}</p> 
+                  </div>
+                </div>
+      `
+      
+    }
+  
+         cardcontainer.innerHTML= ihtml ;
+})
+
+</script> 
+</html>

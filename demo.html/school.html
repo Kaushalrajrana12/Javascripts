@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <style>
+         table {
+        width: 50%;
+        background-color: rgba(223, 101, 101, 0.006);
+    }
+
+    table,
+    td,
+    tr {
+        border: 3px solid rgb(19, 28, 131);
+        text-align: center;
+        border-collapse: collapse;
+        padding: 10px;
+
+    }
+        </style>
+        <body>
+            <h1>Nursery Admission</h1>
+            <label for="">Name</label>
+            <input type="text" id="name"/><br><br>
+            
+            <label for="">FatherName</label>
+            <input type="text" id="fname"/><br><br>
+
+            
+            <label for="">MotherName</label>
+            <input type="text" id="mname"/><br><br>
+
+            <label for="">SelectStandard</label>
+          <select id="sc">
+            <option value="Playhouse">Playhouse</option>
+            <option value="Nursery">Nursery</option>
+            <option value="JuniorKg">JuniorKg</option>
+            <option value="SeniorKg">SeniorKg</option>
+          </select><br><br>
+
+          <label for="">Gender</label><br>
+                <input type="radio" id="boy" name="gender" value="boy">
+                <label for="Boy">Boy</label><br>
+                <input type="radio" id="girl" name="gender" value="girl">
+                <label for="Girl">Girl</label><br><br>
+
+          <label>MobileNo</label>
+            <input type="number" name="mobileno" id="mn"/><br>
+       <button onclick="nursery()">Submit</button>
+       <div id="school"></div>
+        </body>
+
+
+
+<script>
+            let a=[];
+            
+            function  dels(index)
+             {
+                console.log('dels');
+                a.slice(index, 1);
+                a=[];
+                nursery();
+            }
+            
+            function nursery()
+            {
+                let r = parseInt(document.getElementById("mn").value);
+            
+                a.push({
+                    Name:document.getElementById("name").value,
+                    FatherName:document.getElementById("fname").value,
+                    MotherName:document.getElementById("mname").value,
+                    SelectStandard:document.getElementById("sc").value,
+                    Gender:document.querySelector('input[name="gender"]:checked').value,
+                    MobileNo:r
+                });
+                let str =`<table id='abc'>
+                    <tr>
+                        <td>Name</td>
+                        <td>FatherName</td>
+                        <td>MotherName</td>
+                        <td>SelectStandard</td>
+                        <td>Gender</td>
+                        <td>MobileNo</td>
+                            
+              </tr>
+                `;
+                for(let i =0; i < a.length; i++)
+                {
+                    str += `<tr>
+                        <td>${a[i].Name}</td>
+                        <td>${a[i].FatherName}</td>
+                        <td>${a[i].MotherName}</td>
+                        <td>${a[i].SelectStandard}</td>
+                        <td>${a[i].Gender}</td>
+                        <td>${a[i].MobileNo}</td>
+                       <td><button onClick="dels(${i})">Delete</button></td>
+                        </tr>`;
+                        
+                }
+                str += '</table>';
+        document.getElementById("school").innerHTML = str;
+            }            
+        
+        </script>
+    </head>
+</html>
